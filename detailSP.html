@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="bootstrap-5.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function hienicon(obj){
+        obj.querySelector("#button-mua-ngay").style.display="block";
+        obj.querySelector('#img-hover').style.display='block';
+        obj.querySelector('#img-normal').style.display='none';
+        }
+        function anicon(obj){
+        obj.querySelector("#button-mua-ngay").style.display="none";
+        obj.querySelector('#img-hover').style.display='none';
+        obj.querySelector('#img-normal').style.display='block';
+        }
+        function like(){
+        var obj = event.target;
+        if (obj.src.endsWith('img/Heart_White.svg')==true)
+            obj.src="img/Heart_Orange.svg";
+        else
+            obj.src="img/Heart_White.svg";
+        }
+        
+    </script>
+</head>
+
+<body ng-app="mainapp" ng-controller="myCtrl">
+    <!-- Header -->
+    <div class="container-fluid">
+        <!-- head1 -->
+        <div class="row">
+            <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary pt-0 pb-0" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <!-- Mobie Icon -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-head"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse flex-row-reverse" id="nav-head">
+                        <ul class="navbar-nav me-5">
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" aria-current="page" href="#"><i
+                                        class="fa-solid fa-box me-1"></i> Tra cứu đơn hàng</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link " href="#"><i class="fa-solid fa-location-dot me-1"></i>
+                                    Tìm cửa hàng</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link " href="#"><i class="fa-solid fa-heart me-1"></i> Yêu
+                                    thích</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" href="#"><i class="fa-solid fa-user me-1"></i> Đăng
+                                    nhập</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" href="giohang.html"><i class="fa-solid fa-cart-shopping me-1"></i>
+                                    Giỏ Hàng (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- head2 -->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg pt-3 pb-3">
+                <div class="container-fluid">
+                    <div class="navbar-brand" style="padding: 0px 10px 0px 80px;">
+                        <a href="index.html"><img src="img/Logo_Ananas_Header.svg" alt=""></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <div class="">
+                            <ul class="navbar-nav justify-content-center m-auto ">
+                                <!-- Sản Phẩm -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        Sản Phẩm
+                                    </a>                                   
+                                </li>
+                                <!-- Nam -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        NAM
+                                    </a>                                   
+                                </li>
+                                <!-- Nữ -->
+                                <li class="nav-item  head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        NỮ
+                                    </a>                                    
+                                </li>
+                                <!-- Sell off -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link active" aria-current="page" href="danhsachsanpham.html">SALE OFF</a>
+                                </li>
+                                <!-- Discorver  -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link active" aria-current="page" href="danhsachsanpham.html"><img
+                                            src="img/DiscoverYOU.svg" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="">
+                        <form class="form-group" role="search" style="margin-right: 40px;">
+                            <input class="form-control" type="search" placeholder="Tìm Kiếm" aria-label="Search"
+                                style="margin-right: 67px;">
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- head3 -->
+        <div class="row justify-content-center" style="background-color: #f1f1f1; font-size: 15px;">
+            <div id="head3-hotnew" class="carousel slide m-auto text-center" data-bs-ride="carousel"
+                style="width: 600px; height: 50px;">
+                <div class="carousel-inner m-auto text-center" style="padding-top: 13px;">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            FREE SHIP VỚI HÓA ĐƠN TỪ 500K
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            HÀNG 2 TUẦN NHẬN ĐỔI - GIÀY BẢO HÀNH NỮA NĂM
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            BUY MORE PAY LESS - ÁP DỤNG KHI MUA PHỤ KIỆN
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            BUY 2 GET 10% OFF - ÁP DỤNG VỚI TẤT CẢ BASIC TEE
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" style="left: -60px;" type="button" data-bs-target="#head3-hotnewg"
+                    data-bs-slide="prev">
+                    <span class="fa-solid fa-chevron-left" aria-hidden="true" style="color: black;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" style="right: -55px;" type="button" data-bs-target="#head3-hotnew"
+                    data-bs-slide="next">
+                    <span class="fa-solid fa-chevron-right" aria-hidden="true" style="color: black;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body - Content -->
+    <div class="container-fluid p-0 ms-auto me-auto" ng-controller="detailspCtrl" style="max-width: 1200px; margin-top: 30px;" >
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 ">
+                <ol class="sanpham-title">                   
+                    <li><a href="">{{product.color}}</a></li>
+                    |
+                    <li class="sanpham-title-active"><a href="">{{product.name}}</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- Chi Tiết Sản Phẩm -->
+        <div class="row" >
+            <!-- Col-1 -->
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7" >
+                <div class="sanpham-img">
+                    <div class="sanpham-img-detail">
+                        <img id="sp_tn_im" src="{{product.imgdetail}}" class="img-fluid w-100" alt="...">
+                    </div>
+                    <div class="sanpham-thumbnail">
+                        <div class="sanpham-thumbnail-list">
+                            <div class="thumbnail-item">
+                                <img src="{{product.thumb1}}" class="rounded w-100" alt="..." ng-click="thumbnail_click(product.thumb1)">
+                            </div>
+                            <div class="thumbnail-item">
+                                <img src="{{product.thumb2}}" class="rounded w-100" alt="..." ng-click="thumbnail_click(product.thumb2)">
+                            </div>
+                            <div class="thumbnail-item">
+                                <img src="{{product.thumb3}}" class="rounded w-100" alt="..." ng-click="thumbnail_click(product.thumb3)">
+                            </div>
+                            <div class="thumbnail-item">
+                                <img src="{{product.thumb4}}" class="rounded w-100" alt="..." ng-click="thumbnail_click(product.thumb4)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Col-2 -->
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" >
+                <h4 style="font-size: 30px; text-transform: uppercase; line-height: 1.4em;">{{product.name}} - {{product.color}}</h4>
+                <h6 style="margin: 30px 0px 30px 0px; height: 20px;">
+                    <span class="pull-left">Mã sản phẩm: <strong>{{product.masp}}</strong></span>
+                    <span class="pull-right">Tình trạng: <strong>{{product.type}}</strong> </span>
+                </h6>
+                <h5 style="margin: 30px 0px 30px 0px;">
+                    <span class="sanpham-detail-price">{{product.price | number:0}} VND</span>
+                </h5>
+                <div class="line-dash"></div>
+                <div class="sanpham-detail-color">
+                    <ul style="margin-bottom: 0;padding-left: 0; list-style: none;">
+                        <li>
+                            <label class="sanpham-detail-bgcl" for="">
+                                <span class="bgcl" style="background-color: #f0f0ec;"></span>
+                            </label>
+                            <label class="sanpham-detail-bgcl" for="">
+                                <span class="bgcl" style="background-color: #f0f0ec;"></span>
+                            </label>
+                            <label class="sanpham-detail-bgcl" for="">
+                                <span class="bgcl" style="background-color: #2d2c2f;"></span>
+                            </label>
+                            <label class="sanpham-detail-bgcl" for="">
+                                <span class="bgcl" style="background-color: #2d2c2f;"></span>
+                            </label>
+                            <label class="sanpham-detail-bgcl" for="">
+                                <span class="bgcl" style="background-color: #ff7420;"></span>
+                            </label>
+                            <label class="sanpham-detail-bgcl" for="">
+                                <span class="bgcl" style="background-color: #ff7420;"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line-dash"></div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <h5 style="margin: 20px 0px 10px 0px;">SIZE</h5>
+                        <select class="form-select form-select-lg mb-3" aria-label="Large select example" style="border-radius: 0;">                           
+                            <option value="1">S</option>
+                            <option value="2">M</option>
+                            <option value="3">L</option>
+                            <option value="3">XL</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <h5 style="margin: 20px 0px 10px 0px;">SỐ LƯỢNG</h5>
+                        <div class="input-group" >
+                            <input type="number" class="form-control" ng-model="soluong" aria-describedby="basic-addon1" min="0" style="border-radius: 0; height: 47.6px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="sanpham-detail-addtofar">THÊM VÀO GIỎ HÀNG</a>
+                    <a class="sanpham-detail-addtowish" onclick="like()">
+                        <img src="img/Heart_White.svg" alt="">
+                    </a>
+                </div>
+                <div class="row pt-3">
+                    <a class="sanpham-detail-thanhtoan" href="">THANH TOÁN</a>
+                </div>
+                <div class="row">
+                    <div class="accordion rounded-0" id="accordionPanelsStayOpenExample" style="border: none;">
+                        <!-- THÔNG TIN SẢN PHẨM -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <label class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                              THÔNG TIN SẢN PHẨM
+                            </label>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                            <div class="line-dash"></div>
+                            <div class="accordion-body">
+                                Giới tính: Unisex <br>
+                                Form dáng: Regular <br>
+                                Chất liệu: Single Jersey, định lượng 220GSM <br>
+                                Thành phần chất liệu: 100% Cotton <br>
+                                Size: S – M – L – XL <br>
+                                Hoạ tiết: Logos Packed <br>
+                                Sử dụng phương pháp in lụa. <br>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="line-dash"></div>
+                        <!-- QUY ĐỊNG ĐỔI SẢN PHẨM -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <label class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                QUY ĐỊNG ĐỔI SẢN PHẨM
+                            </label>
+                          </h2>
+                          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="line-dash"></div>
+                            <div class="list-group rounded-0 pb-3">
+                                <a href="#" class="list-group-item"><i class="fa-solid fa-quote-left"></i> Chỉ đổi hàng 1 lần duy nhất, mong bạn cân nhắc kĩ trước khi quyết định.</a>
+                                <a href="#" class="list-group-item"><i class="fa-solid fa-quote-left"></i> Thời hạn đổi sản phẩm khi mua trực tiếp tại cửa hàng là 07 ngày, kể từ ngày mua. Đổi sản phẩm khi mua online là 14 ngày, kể từ ngày nhận hàng.</a>
+                                <a href="#" class="list-group-item"><i class="fa-solid fa-quote-left"></i> Sản phẩm đổi phải kèm hóa đơn. Bắt buộc phải còn nguyên tem, hộp, nhãn mác.</a>
+                                <a href="#" class="list-group-item"><i class="fa-solid fa-quote-left"></i> Sản phẩm đổi không có dấu hiệu đã qua sử dụng, không giặt tẩy, bám bẩn, biến dạng.</a>                             
+                                <a href="#" class="list-group-item">
+                                    <i class="fa-solid fa-quote-left"></i> Ananas chỉ ưu tiên hỗ trợ đổi size. Trong trường hợp sản phẩm hết size cần đổi, bạn có thể đổi sang 01 sản phẩm khác: <br>
+                                    - Nếu sản phẩm muốn đổi ngang giá trị hoặc có giá trị cao hơn, bạn sẽ cần bù khoảng chênh lệch tại thời điểm đổi (nếu có). <br>
+                                    - Nếu bạn mong muốn đổi sản phẩm có giá trị thấp hơn, chúng tôi sẽ không hoàn lại tiền.
+                                </a>   
+                                <a href="#" class="list-group-item"><i class="fa-solid fa-quote-left"></i> Trong trường hợp sản phẩm - size bạn muốn đổi không còn hàng trong hệ thống. Vui lòng chọn sản phẩm khác.</a>
+                                <a href="#" class="list-group-item"><i class="fa-solid fa-quote-left"></i> Không hoàn trả bằng tiền mặt dù bất cứ trong trường hợp nào. Mong bạn thông cảm.</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="line-dash"></div>
+                        <!-- BẢO HÀNH THẾ NÀO ? -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <label class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                BẢO HÀNH THẾ NÀO ?
+                            </label>
+                          </h2>
+                          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                            <div class="line-dash"></div>
+                            <div class="accordion-body">
+                                Đối với các sản phẩm thuộc nhóm Nửa trên và Nửa dưới, chính sách bảo hành sẽ không được áp dụng. Tuy nhiên bạn có thể áp dụng chính sách đổi hàng cho các sản phẩm này theo quy định về thời gian và phương thức được ghi rõ như trên.
+                            </div>
+                          </div>
+                        <div class="line-dash"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-dash"></div>
+    <!-- List SP Liên Quan -->
+    <div class="container-fluid p-0 ms-auto me-auto" style="max-width: 1200px;">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                              <h3 class="card-title sp-title">Graphic Tee - Lucky Luke Typo</h3>
+                              <p class="card-text mb-2">Chili Pepper</p>
+                              <h3 class="sp-price">200.000 VND <span class="sp-price-sale">350.000 VND</span></h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Graphic Tee - Most Wanted Dalton</h3>
+                                <p class="card-text mb-2">Caviar Black</p>
+                                <h3 class="sp-price">200.000 VND <span class="sp-price-sale">350.000 VND</span></h3>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu3.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Hiphop Graphic - Discover Ananas</h3>
+                                <p class="card-text mb-2">Ermine</p>
+                                <h3 class="sp-price">200.000 VND <span class="sp-price-sale">365.000 VND</span></h3>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu4.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Doraemon  50 Years</h3>
+                                <p class="card-text mb-2">Black</p>
+                                <h3 class="sp-price">590.000 VND </h3>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu5.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                              <h3 class="card-title sp-title">Graphic Tee - Lucky Luke Typo</h3>
+                              <p class="card-text mb-2">Chili Pepper</p>
+                              <h3 class="sp-price">200.000 VND <span class="sp-price-sale">350.000 VND</span></h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu6.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Graphic Tee - Most Wanted Dalton</h3>
+                                <p class="card-text mb-2">Caviar Black</p>
+                                <h3 class="sp-price">200.000 VND <span class="sp-price-sale">350.000 VND</span></h3>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu7.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Hiphop Graphic - Discover Ananas</h3>
+                                <p class="card-text mb-2">Ermine</p>
+                                <h3 class="sp-price">200.000 VND <span class="sp-price-sale">365.000 VND</span></h3>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu8.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Doraemon  50 Years</h3>
+                                <p class="card-text mb-2">Black</p>
+                                <h3 class="sp-price">590.000 VND </h3>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu9.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                              <h3 class="card-title sp-title">Graphic Tee - Lucky Luke Typo</h3>
+                              <p class="card-text mb-2">Chili Pepper</p>
+                              <h3 class="sp-price">200.000 VND <span class="sp-price-sale">350.000 VND</span></h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu10.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Graphic Tee - Most Wanted Dalton</h3>
+                                <p class="card-text mb-2">Caviar Black</p>
+                                <h3 class="sp-price">200.000 VND <span class="sp-price-sale">350.000 VND</span></h3>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu11.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Hiphop Graphic - Discover Ananas</h3>
+                                <p class="card-text mb-2">Ermine</p>
+                                <h3 class="sp-price">200.000 VND <span class="sp-price-sale">365.000 VND</span></h3>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+                        <div class="card sanpham-p" style="width: 16rem; margin: 0 auto">
+                            <img src="img/SanPham_phu12.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h3 class="card-title sp-title">Doraemon  50 Years</h3>
+                                <p class="card-text mb-2">Black</p>
+                                <h3 class="sp-price">590.000 VND </h3>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev sp-arr-l" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next sp-arr-r" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+    <!-- List SP Liên Quan -->
+    <div class="full-dash"></div>
+
+    <!-- FOOTER -->
+    <footer style="padding-top: 20px;">
+        <div class="container-fluid ms-auto me-auto" style="background-color: #4c4c4c; padding: 60px 0px 60px 0px;">
+            <div class="row me-0">
+                <!-- CỘT 1 -->
+                <div class="col-md-3">
+                    <di class="row justify-content-center" style="padding: 0px 0px 20px 0px;">
+                        <img src="img/Store.svg" alt="" style="width: 300px; padding: 0px ;">
+                    </di>
+                    <di class="row justify-content-center " style="padding-bottom: 20px;">
+                        <a class="btn btn-search" href=""
+                            style="width: 280px; height: 40px; background-color: #f15e2c; border: #f15e2c 1px solid; border-radius: 0; color: #fff; font-size: 23px;">TÌM
+                            CỬA HÀNG</a>
+                    </di>
+                </div>
+
+                <!-- CỘT 2 -->
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>SẢN PHẨM</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Giày Nam</a></li>
+                                <li><a href="">Giày Nữ</a></li>
+                                <li><a href="">Thời trang & Phụ kiện</a></li>
+                                <li><a href="">Sale-off</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>VỀ CÔNG TY</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Dứa tuyển dụng</a></li>
+                                <li><a href="">Liên hệ nhượng quyền</a></li>
+                                <li><a href="">Về Ananas</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>HỖ TRỢ</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">FAQs</a></li>
+                                <li><a href="">Bảo mật thông tin</a></li>
+                                <li><a href="">Chính sách chung</a></li>
+                                <li><a href="">Tra cứu đơn hàng</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>LIÊN HỆ</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Email góp ý</a></li>
+                                <li><a href="">Hotline</a></li>
+                                <li><a href="">0963 429 749</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 footer-title">
+                            <h4>ANANAS SOCIAL</h4>
+                            <a href=""><img src="img/icon_facebook.svg" alt=""></a>
+                            <a href=""><img src="img/icon_instagram.svg" alt=""></a>
+                            <a href=""><img src="img/icon_youtube.svg" alt=""></a>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <h4>ĐĂNG KÝ NHẬN MAIL</h4>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 10px;">
+                            <a href=""><img src="img/Logo_Ananas_Footer.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" style="margin-top: 50px;">
+                            <a href=""><img src="img/icon_bocongthuong.png" alt=""></a>
+                        </div>
+                        <div class="col-md-9 footer-copyright">
+                            Copyright © 2022 Ananas. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+
+    <!-- Cart & Social -->
+    <div class="cart_hiden">
+        <a href="TrangThanhToan.html">
+            <span id="count">0</span>
+            <br>
+            <img src="img/icon_gio_hang.svg" alt=""></a>
+    </div>
+
+    <div class="social_hiden">
+        <a href="https://www.facebook.com/Ananas.vietnam/">
+            <img src="img/icon_facebook_2.svg">
+        </a>
+        <a href="https://www.instagram.com/ananasvn/">
+            <img src="img/icon_instagram_2.svg">
+        </a>
+        <a href="https://www.youtube.com/discoveryou">
+            <img src="img/icon_youtube_2.svg">
+        </a>
+    </div>
+    <!-- Cart & Social -->
+
+    <script src="scr/angular.js"></script>
+    <script src="scr/angular-route.min.js"></script>
+    <script src="bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/50eedbacb3.js" crossorigin="anonymous"></script>
+    <script src="scr/sp.js"></script>
+</body>
+
+</html>

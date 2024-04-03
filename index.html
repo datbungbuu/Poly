@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="bootstrap-5.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body ng-app="mainapp">
+    <!-- Header -->
+    <div class="container-fluid">
+        <!-- head1 -->
+        <div class="row">
+            <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary pt-0 pb-0" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <!-- Mobie Icon -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-head"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse flex-row-reverse" id="nav-head">
+                        <ul class="navbar-nav me-5">
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" aria-current="page" href="#"><i
+                                        class="fa-solid fa-box me-1"></i> Tra cứu đơn hàng</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link " href="#"><i class="fa-solid fa-location-dot me-1"></i>
+                                    Tìm cửa hàng</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link " href="#"><i class="fa-solid fa-heart me-1"></i> Yêu
+                                    thích</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" href="#"><i class="fa-solid fa-user me-1"></i> Đăng
+                                    nhập</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" href="giohang.html"><i class="fa-solid fa-cart-shopping me-1"></i>
+                                    Giỏ Hàng (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- head2 -->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg pt-3 pb-3">
+                <div class="container-fluid">
+                    <div class="navbar-brand" style="padding: 0px 10px 0px 80px;">
+                        <a href="index.html"><img src="img/Logo_Ananas_Header.svg" alt=""></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <div class="">
+                            <ul class="navbar-nav justify-content-center m-auto ">
+                                <!-- Sản Phẩm -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        Sản Phẩm
+                                    </a>                                   
+                                </li>
+                                <!-- Nam -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        NAM
+                                    </a>                                   
+                                </li>
+                                <!-- Nữ -->
+                                <li class="nav-item  head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        NỮ
+                                    </a>                                    
+                                </li>
+                                <!-- Sell off -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link active" aria-current="page" href="danhsachsanpham.html">SALE OFF</a>
+                                </li>
+                                <!-- Discorver  -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link active" aria-current="page" href="danhsachsanpham.html"><img
+                                            src="img/DiscoverYOU.svg" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="">
+                        <form class="form-group" role="search" style="margin-right: 40px;">
+                            <input class="form-control" type="search" placeholder="Tìm Kiếm" aria-label="Search"
+                                style="margin-right: 67px;">
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- head3 -->
+        <div class="row justify-content-center" style="background-color: #f1f1f1; font-size: 15px;">
+            <div id="head3-hotnew" class="carousel slide m-auto text-center" data-bs-ride="carousel"
+                style="width: 600px; height: 50px;">
+                <div class="carousel-inner m-auto text-center" style="padding-top: 13px;">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            FREE SHIP VỚI HÓA ĐƠN TỪ 500K
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            HÀNG 2 TUẦN NHẬN ĐỔI - GIÀY BẢO HÀNH NỮA NĂM
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            BUY MORE PAY LESS - ÁP DỤNG KHI MUA PHỤ KIỆN
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            BUY 2 GET 10% OFF - ÁP DỤNG VỚI TẤT CẢ BASIC TEE
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" style="left: -60px;" type="button" data-bs-target="#head3-hotnewg"
+                    data-bs-slide="prev">
+                    <span class="fa-solid fa-chevron-left" aria-hidden="true" style="color: black;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" style="right: -55px;" type="button" data-bs-target="#head3-hotnew"
+                    data-bs-slide="next">
+                    <span class="fa-solid fa-chevron-right" aria-hidden="true" style="color: black;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body - Content -->
+    <div class="container-fluid p-0" style="max-width: 1600px;">
+        <!-- Home - Banner -->
+        <div id="home-baner" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#home-baner" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#home-baner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/Home-Slide-1.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/Home-Slide-2.jpeg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner - Phụ -->
+        <div class="container-fluid ms-auto me-auto" style="max-width: 1200px; padding: 50px 0px 20px 0px;">
+            <div class="row me-0">
+                <!-- 1 -->
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding: 0px 10px;">
+                    <div class="card m-auto" style="border: none;">
+                        <img src="img/banner-phụ_1-600x320.jpg" class="card-img-top rounded-0" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title">ALL BLACK IN BLACK</h3>
+                            <p class="card-text">Mặc dù được ứng dụng rất nhiều, nhưng sắc đen lúc nào cũng toát lên một
+                                vẻ huyền bí không nhàm chán.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding: 0px 20px;">
+                    <div class="card m-auto" style="border: none;">
+                        <img src="img/Banner_Sale-off-1.jpg" class="card-img-top rounded-0" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title">OUTLET SALE</h3>
+                            <p class="card-text">Danh mục những sản phẩm bán tại "giá tốt hơn" chỉ được bán kênh online
+                                - Online Only, chúng đã từng làm mưa làm gió một thời gian và hiện đang rơi vào tình
+                                trạng bể size, bể số..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danh Mục Sản Phẩm -->
+        <div class="container-fluid ms-auto me-auto pb-5" style="max-width: 1200px; padding: 50px 0px 20px 0px; ">
+            <div class="row justify-content-center m-auto pb-5" style="font-size: 30px; font-weight: 600; ">
+                DANH MỤC MUA HÀNG
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-md-4 ps-1 pe-1" style="position: relative;">
+                    <div class="danhmuc-bg">
+                        <div class="danhmuc-blackbg"></div>
+                        <img src="img/danhmuc_img1.jpg" alt="">
+                    </div>
+                    <div class="danhmuc-item">
+                        <a href="" class="danhmuc-item-title">GIÀY NAM</a>
+                        <a href="" class="danhmuc-item-con">New Arrvials</a>
+                        <a href="" class="danhmuc-item-con">Best Seller</a>
+                        <a href="" class="danhmuc-item-con">Sale-off</a>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-md-4 ps-1 pe-1" style="position: relative;">
+                    <div class="danhmuc-bg">
+                        <div class="danhmuc-blackbg"></div>
+                        <img src="img/danhmuc_img2.jpg" alt="">
+                    </div>
+                    <div class="danhmuc-item">
+                        <a href="" class="danhmuc-item-title">GIÀY NỮ</a>
+                        <a href="" class="danhmuc-item-con">New Arrvials</a>
+                        <a href="" class="danhmuc-item-con">Best Seller</a>
+                        <a href="" class="danhmuc-item-con">Sale-off</a>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-md-4 ps-1 pe-1" style="position: relative;">
+                    <div class="danhmuc-bg">
+                        <div class="danhmuc-blackbg"></div>
+                        <img src="img/danhmuc_img3.jpg" alt="">
+                    </div>
+                    <div class="danhmuc-item">
+                        <a href="" class="danhmuc-item-title">DÒNG SẢN PHẨM</a>
+                        <a href="" class="danhmuc-item-con">Basas</a>
+                        <a href="" class="danhmuc-item-con">Vintas</a>
+                        <a href="" class="danhmuc-item-con">Pattas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End - Banner -->
+        <div class="container-fluid p-0 mb-1" style="max-width: 1600px;">
+            <div id="home-baner" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/bannergiay.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-fluid ms-auto me-auto" style="background-color: #4c4c4c; padding: 60px 0px 60px 0px;">
+            <div class="row me-0">
+                <!-- CỘT 1 -->
+                <div class="col-md-3">
+                    <di class="row justify-content-center" style="padding: 0px 0px 20px 0px;">
+                        <img src="img/Store.svg" alt="" style="width: 300px; padding: 0px ;">
+                    </di>
+                    <di class="row justify-content-center " style="padding-bottom: 20px;">
+                        <a class="btn btn-search" href=""
+                            style="width: 280px; height: 40px; background-color: #f15e2c; border: #f15e2c 1px solid; border-radius: 0; color: #fff; font-size: 23px;">TÌM
+                            CỬA HÀNG</a>
+                    </di>
+                </div>
+
+                <!-- CỘT 2 -->
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>SẢN PHẨM</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Giày Nam</a></li>
+                                <li><a href="">Giày Nữ</a></li>
+                                <li><a href="">Thời trang & Phụ kiện</a></li>
+                                <li><a href="">Sale-off</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>VỀ CÔNG TY</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Dứa tuyển dụng</a></li>
+                                <li><a href="">Liên hệ nhượng quyền</a></li>
+                                <li><a href="">Về Ananas</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>HỖ TRỢ</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">FAQs</a></li>
+                                <li><a href="">Bảo mật thông tin</a></li>
+                                <li><a href="">Chính sách chung</a></li>
+                                <li><a href="">Tra cứu đơn hàng</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>LIÊN HỆ</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Email góp ý</a></li>
+                                <li><a href="">Hotline</a></li>
+                                <li><a href="">0963 429 749</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 footer-title">
+                            <h4>ANANAS SOCIAL</h4>
+                            <a href=""><img src="img/icon_facebook.svg" alt=""></a>
+                            <a href=""><img src="img/icon_instagram.svg" alt=""></a>
+                            <a href=""><img src="img/icon_youtube.svg" alt=""></a>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <h4>ĐĂNG KÝ NHẬN MAIL</h4>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 10px;">
+                            <a href=""><img src="img/Logo_Ananas_Footer.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" style="margin-top: 50px;">
+                            <a href=""><img src="img/icon_bocongthuong.png" alt=""></a>
+                        </div>
+                        <div class="col-md-9 footer-copyright">
+                            Copyright © 2022 Ananas. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart & Social -->
+    <div class="cart_hiden">
+        <a href="TrangThanhToan.html">
+            <span id="count">0</span>
+            <br>
+            <img src="img/icon_gio_hang.svg" alt=""></a>
+    </div>
+
+    <div class="social_hiden">
+        <a href="https://www.facebook.com/Ananas.vietnam/">
+            <img src="img/icon_facebook_2.svg">
+        </a>
+        <a href="https://www.instagram.com/ananasvn/">
+            <img src="img/icon_instagram_2.svg">
+        </a>
+        <a href="https://www.youtube.com/discoveryou">
+            <img src="img/icon_youtube_2.svg">
+        </a>
+    </div>
+    <!-- Cart & Social -->
+
+    <script src="scr/angular.js"></script>
+    <script src="scr/angular-route.min.js"></script>
+    <script src="bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/50eedbacb3.js" crossorigin="anonymous"></script>
+    <script src="scr/sp.js"></script>
+</body>
+
+</html>

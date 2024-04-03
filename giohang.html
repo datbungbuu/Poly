@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="bootstrap-5.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function hienicon(obj) {
+            obj.querySelector("#button-mua-ngay").style.display = "block";
+            obj.querySelector('#img-hover').style.display = 'block';
+            obj.querySelector('#img-normal').style.display = 'none';
+        }
+        function anicon(obj) {
+            obj.querySelector("#button-mua-ngay").style.display = "none";
+            obj.querySelector('#img-hover').style.display = 'none';
+            obj.querySelector('#img-normal').style.display = 'block';
+        }
+        function like() {
+            var obj = event.target;
+            if (obj.src.endsWith('img/Heart_White.svg') == true)
+                obj.src = "img/Heart_Orange.svg";
+            else
+                obj.src = "img/Heart_White.svg";
+        }
+        function thumbnail_click() {
+            var obj = event.target;
+            if (obj.src.endsWith('img/ChiTietSP_Thumbnail1.jpg') == true)
+                document.getElementById("sp_tn_im").src = 'img/ChiTietSP_Thumbnail1.jpg';
+            else if (obj.src.endsWith('img/ChiTietSP_Thumbnail2.jpg') == true)
+                document.getElementById("sp_tn_im").src = 'img/ChiTietSP_Thumbnail2.jpg';
+            else if (obj.src.endsWith('img/ChiTietSP_Thumbnail3.jpg') == true)
+                document.getElementById("sp_tn_im").src = 'img/ChiTietSP_Thumbnail3.jpg';
+            else if (obj.src.endsWith('img/ChiTietSP_Thumbnail4.jpg') == true)
+                document.getElementById("sp_tn_im").src = 'img/ChiTietSP_Thumbnail4.jpg';
+        }
+    </script>
+</head>
+
+<body ng-app="mainapp" ng-controller="myCtrl">
+    <!-- Header -->
+    <div class="container-fluid">
+        <!-- head1 -->
+        <div class="row">
+            <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary pt-0 pb-0" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <!-- Mobie Icon -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-head"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse flex-row-reverse" id="nav-head">
+                        <ul class="navbar-nav me-5">
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" aria-current="page" href="#"><i
+                                        class="fa-solid fa-box me-1"></i> Tra cứu đơn hàng</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link " href="#"><i class="fa-solid fa-location-dot me-1"></i>
+                                    Tìm cửa hàng</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link " href="#"><i class="fa-solid fa-heart me-1"></i> Yêu
+                                    thích</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" href="#"><i class="fa-solid fa-user me-1"></i> Đăng
+                                    nhập</a>
+                            </li>
+                            <li class="nav-item head-nav">
+                                <a class="nav-link head-link" href="giohang.html"><i class="fa-solid fa-cart-shopping me-1"></i>
+                                    Giỏ Hàng ({{giohangsanpham.length}})</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- head2 -->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg pt-3 pb-3">
+                <div class="container-fluid">
+                    <div class="navbar-brand" style="padding: 0px 10px 0px 80px;">
+                        <a href="index.html"><img src="img/Logo_Ananas_Header.svg" alt=""></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <div class="">
+                            <ul class="navbar-nav justify-content-center m-auto ">
+                                <!-- Sản Phẩm -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        Sản Phẩm
+                                    </a>                                   
+                                </li>
+                                <!-- Nam -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        NAM
+                                    </a>                                   
+                                </li>
+                                <!-- Nữ -->
+                                <li class="nav-item  head1-nav">
+                                    <a class="nav-link head1-link" href="danhsachsanpham.html">
+                                        NỮ
+                                    </a>                                    
+                                </li>
+                                <!-- Sell off -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link head1-link active" aria-current="page" href="danhsachsanpham.html">SALE OFF</a>
+                                </li>
+                                <!-- Discorver  -->
+                                <li class="nav-item head1-nav">
+                                    <a class="nav-link active" aria-current="page" href="danhsachsanpham.html"><img
+                                            src="img/DiscoverYOU.svg" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="">
+                        <form class="form-group" role="search" style="margin-right: 40px;">
+                            <input class="form-control" type="search" placeholder="Tìm Kiếm" aria-label="Search"
+                                style="margin-right: 67px;">
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- head3 -->
+        <div class="row justify-content-center" style="background-color: #f1f1f1; font-size: 15px;">
+            <div id="head3-hotnew" class="carousel slide m-auto text-center" data-bs-ride="carousel"
+                style="width: 600px; height: 50px;">
+                <div class="carousel-inner m-auto text-center" style="padding-top: 13px;">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            FREE SHIP VỚI HÓA ĐƠN TỪ 500K
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            HÀNG 2 TUẦN NHẬN ĐỔI - GIÀY BẢO HÀNH NỮA NĂM
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            BUY MORE PAY LESS - ÁP DỤNG KHI MUA PHỤ KIỆN
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row justify-content-center">
+                            BUY 2 GET 10% OFF - ÁP DỤNG VỚI TẤT CẢ BASIC TEE
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" style="left: -60px;" type="button" data-bs-target="#head3-hotnewg"
+                    data-bs-slide="prev">
+                    <span class="fa-solid fa-chevron-left" aria-hidden="true" style="color: black;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" style="right: -55px;" type="button" data-bs-target="#head3-hotnew"
+                    data-bs-slide="next">
+                    <span class="fa-solid fa-chevron-right" aria-hidden="true" style="color: black;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body - Content -->
+    <div ng-controller="giohangCtrl" class="container-fluidp-0 ms-auto me-auto" style="max-width: 1200px; margin-top: 30px;">
+        <div class="row">
+            <!-- LEFT -->
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 gh-main-left">
+                <!-- TITLE -->
+                <div class="row" >
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 gh-main-left-title"> BẠN CÓ CẦN THÊM ?</div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 40px">
+                        <div id="sanphamlienquan_gh" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" >
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[0].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[0].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[0].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[0].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[2].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[2].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[2].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[2].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item ">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[4].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[4].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[4].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[4].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[5].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[5].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[5].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[5].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item ">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[15].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[15].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[15].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[15].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[14].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[14].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[14].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[14].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item ">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[19].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[19].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[19].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[19].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                                            <div class="row m-0" style="max-height: 140px;">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 splq_body_left">
+                                                    <img src="{{sanpham[20].img}}" class="card-img-top" alt="">
+                                                </div>
+                                                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 splq_body_right">
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[20].name}}</a></h3>
+                                                    <h3 class="card-title splq-title"><a href="">{{sanpham[20].color}}</a></h3>
+                                                    <h3 class="splq-price">{{sanpham[20].price|number:0}} VND </h3>
+                                                    <h3 class="">
+                                                        <button class="btn splq-button">THÊM</button>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                  
+                            <button class="carousel-control-prev splq-arr-l" type="button"
+                                data-bs-target="#sanphamlienquan_gh" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next splq-arr-r" type="button"
+                                data-bs-target="#sanphamlienquan_gh" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- CONTENT -->
+                <div class="row" >
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 gh-main-left-title-1">GIỎ HÀNG</div>
+                    <div class="row" ng-repeat="sp in giohangsanpham">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 product-dash-1"></div>
+                        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 product-item-1 p-0">
+                            <div class="product-content">
+                                <div class="content-left">
+                                    <a href=""><img src="{{sp.img}}" class="img-fluid content-left-img"
+                                            alt=""></a>
+                                </div>
+                                <div class="content-right">
+                                    <a href="" style="text-decoration: none;">
+                                        <h4 class="content-right-heading">{{sp.name}} - {{sp.color}}</h4>
+                                    </a>
+                                    <h5 class="content-right-price">
+                                        <span class="content-right-price-saleoff "><strong>Giá:</strong> {{sp.price | number:0}}
+                                            VND</span>
+                                    </h5>
+                                    <div class="row content-right-bottom">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                            <h5 class="content-bottom-title">Size</h5>
+                                            <select ng-model="sp.size" class="form-select form-select" aria-label="Large select example"
+                                                style="border-radius: 0;">
+                                                <option value="{{}}">36</option>
+                                                <option value="37">37</option>
+                                                <option value="38">38</option>
+                                                <option value="39">39</option>
+                                                <option value="40">40</option>
+                                                <option value="41">41</option>
+                                                <option value="42">42</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                            <h5 class="content-bottom-title">Số Lượng</h5>
+                                            <div class="input-group" >
+                                                <input type="number" class="form-control" ng-model="sp.soluong" aria-describedby="basic-addon1" min="0" style="border-radius: 0;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 product-item-2">
+                            <div class="product-item-2-price">{{sp.soluong * sp.price | number:0}} VND</div>
+                            <div class="product-item-2-status">Còn hàng</div>
+                            <div class="product-item-2-button">
+                                <div class="row m-0 mb-2 justify-content-end">
+                                    <button class=" product-item-2-button-like">
+                                        <img src="img/Heart_White.svg" alt="" onclick="like()">
+                                    </button>
+                                </div>
+                                <div class="row m-0 justify-content-end">
+                                    <button ng-click="xoa($index)" class=" product-item-2-button-delete">
+                                        <img src="img/Trash_bin.svg" alt="" style="margin-bottom: 2px;">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 product-dash"></div>
+                    <div class="row m-0">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0" style="margin: 35px 0px 20px 0px;">
+                            <button class="gh-btn-clearall" ng-click="xoahet()">XÓA HẾT</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0" style="margin: 35px 0px 20px 0px;">
+                            <button class="gh-btn-back">QUAY LẠI MUA HÀNG</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 gh-main-right">
+                <ul class="gh-main-right-item">
+                    <li class="right-item-title">ĐƠN HÀNG</li>
+                    <li class="right-item-dash"></li>
+                    <li class="right-item-title-1">NHẬP MÃ KHUYẾN MÃI</li>
+                    <li class="right-item" style="padding: 10px 0px;">
+                        <div class="row m-0 item-group">
+                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 p-0">
+                                <input type="text" class="form-control rounded-0" name="" id=""
+                                    style="border: 1px solid #ccc;">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 p-0">
+                                <span style="width: 100%;">
+                                    <button class="item-group-btn">ÁP DỤNG</button>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="right-item-dash-1"></li>
+                    <div class="row m-0" ng-repeat="sp in giohangsanpham">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 p-0">
+                            <span class="item-text-1-title">{{sp.name}}</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 p-0 text-end">
+                            <span class="item-text-1-title-2">{{sp.price | number:0}} VND</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 p-0">
+                            <span class="item-text-1-title-2">SIZE: {{sp.size}}</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 p-0 text-end">
+                            <span class="item-text-1-title-2">X {{sp.soluong}}</span>
+                        </div>
+                    </div>
+                    <li class="right-item-dash-1"></li>
+                    <li class="right-item-text-1">
+                        <div class="row m-0">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0">
+                                <span class="item-text-1-title">Đơn hàng</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0 text-end">
+                                <span class="item-text-1-title-2">{{tongtien() | number:0}} VND</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="right-item-text-2">
+                        <div class="row m-0">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0">
+                                <span class="item-text-1-title">Giảm</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0 text-end">
+                                <span class="item-text-1-title-2">{{giamgia() | number:0}} VND</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="right-item-dash-1"></li>
+                    <li class="right-item-total">
+                        <div class="row m-0">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0 text-start">
+                                <span class="item-total-text">TỔNG TIỀN</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-0 text-end">
+                                <span class="item-total-price">{{tongtiengiam() | number:0}} VND</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="right-item-button">
+                        <button class=" right-item-total-btn">THANH TOÁN</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="padding-top: 20px;">
+        <div class="container-fluid ms-auto me-auto" style="background-color: #4c4c4c; padding: 60px 0px 60px 0px;">
+            <div class="row me-0">
+                <!-- CỘT 1 -->
+                <div class="col-md-3">
+                    <di class="row justify-content-center" style="padding: 0px 0px 20px 0px;">
+                        <img src="img/Store.svg" alt="" style="width: 300px; padding: 0px ;">
+                    </di>
+                    <di class="row justify-content-center " style="padding-bottom: 20px;">
+                        <a class="btn btn-search" href=""
+                            style="width: 280px; height: 40px; background-color: #f15e2c; border: #f15e2c 1px solid; border-radius: 0; color: #fff; font-size: 23px;">TÌM
+                            CỬA HÀNG</a>
+                    </di>
+                </div>
+
+                <!-- CỘT 2 -->
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>SẢN PHẨM</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Giày Nam</a></li>
+                                <li><a href="">Giày Nữ</a></li>
+                                <li><a href="">Thời trang & Phụ kiện</a></li>
+                                <li><a href="">Sale-off</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>VỀ CÔNG TY</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Dứa tuyển dụng</a></li>
+                                <li><a href="">Liên hệ nhượng quyền</a></li>
+                                <li><a href="">Về Ananas</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>HỖ TRỢ</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">FAQs</a></li>
+                                <li><a href="">Bảo mật thông tin</a></li>
+                                <li><a href="">Chính sách chung</a></li>
+                                <li><a href="">Tra cứu đơn hàng</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <a href="">
+                                <h4>LIÊN HỆ</h4>
+                            </a>
+                            <ul>
+                                <li><a href="">Email góp ý</a></li>
+                                <li><a href="">Hotline</a></li>
+                                <li><a href="">0963 429 749</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 footer-title">
+                            <h4>ANANAS SOCIAL</h4>
+                            <a href=""><img src="img/icon_facebook.svg" alt=""></a>
+                            <a href=""><img src="img/icon_instagram.svg" alt=""></a>
+                            <a href=""><img src="img/icon_youtube.svg" alt=""></a>
+                        </div>
+                        <div class="col-md-3 footer-title">
+                            <h4>ĐĂNG KÝ NHẬN MAIL</h4>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 10px;">
+                            <a href=""><img src="img/Logo_Ananas_Footer.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" style="margin-top: 50px;">
+                            <a href=""><img src="img/icon_bocongthuong.png" alt=""></a>
+                        </div>
+                        <div class="col-md-9 footer-copyright">
+                            Copyright © 2022 Ananas. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+
+    <!-- Cart & Social -->
+    <div class="cart_hiden">
+        <a href="TrangThanhToan.html">
+            <span id="count">{{giohangsanpham.length}}</span>
+            <br>
+            <img src="img/icon_gio_hang.svg" alt=""></a>
+    </div>
+
+    <div class="social_hiden">
+        <a href="https://www.facebook.com/Ananas.vietnam/">
+            <img src="img/icon_facebook_2.svg">
+        </a>
+        <a href="https://www.instagram.com/ananasvn/">
+            <img src="img/icon_instagram_2.svg">
+        </a>
+        <a href="https://www.youtube.com/discoveryou">
+            <img src="img/icon_youtube_2.svg">
+        </a>
+    </div>
+    <!-- Cart & Social -->
+
+    <script src="scr/angular.js"></script>
+    <script src="scr/angular-route.min.js"></script>
+    <script src="bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/50eedbacb3.js" crossorigin="anonymous"></script>
+    <script src="scr/sp.js"></script>
+</body>
+
+</html>
